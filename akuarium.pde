@@ -3,11 +3,31 @@ PImage ikan2;
 int garisx=0;
 int garisy=0;
 int lastCleaning;
+Bubble things[] = new Bubble [40];
+
+float diameter = 50; //diameter
+float diameterF = diameter;
+
+
+float locX = 0; //location
+float locXF = locX;
+float dirX = 1; //direction
+float speedX = 3; //speed
+
+float locY = 0; //location
+float locYF = locY;
+float dirY = 1; //direction
+float speedY = 3; //speed
 
 void setup() {
   size(1000, 750);
   ikan1 = loadImage("ikan.png");
   ikan2 = loadImage("ikan.png");
+  
+  // bikin gelembong
+  for (int i = 0; i < things.length; i ++) { 
+    things[i] = new Bubble();
+  }
 }
 
 int x=100;
@@ -97,6 +117,57 @@ void draw() {
   rumput2();
   ikan(x,y,w,h);
   istana();
+    locX += speedX * dirX;
+
+
+  //formular y velocity
+  locY += speedY * dirY;
+
+
+
+  //X CONDITIONALS
+  if (locX >= width - diameter/2) {
+    locX = width - diameter/2;
+    dirX = -1;
+    speedX = random(3, 10);
+    diameter = (100);
+  }
+
+  if (locX <= 0 + diameter/2) {
+    locX = 0 + diameter/2;
+    dirX = 1;
+    speedX = random(3, 10);
+    diameter = (100);
+  }
+
+
+  //Y CONDITIONALS
+  if (locY >= height - diameter/2) {
+    locY = height - diameter/2;
+    dirY = -1;
+    speedY = random(3, 10);
+    diameter = (100);
+  }
+
+  if (locY <= 0 + diameter/2) {
+    locY = 0 + diameter/2;
+    dirY = 1;
+    speedY = random(3, 10);
+    diameter = (100);
+  }
+
+  diameterF += (diameter - diameterF) * .1;
+  locXF += (locX - locXF) * .1;
+  locYF += (locY - locYF) * .1;
+  //MOTION END
+
+
+
+
+  for (int i = 0; i < things.length; i ++) {
+    things[i].update(); //this update runs the forLoop
+    things[i].display();
+  }
 }
 
 
@@ -250,4 +321,46 @@ void rumput2() {
   rect(xAcc-500,yAcc-140,20,150,20);
   rect(xAcc-450,yAcc-195,20,70,20);
   rect(xAcc-500,yAcc-200,20,90,30);
+}
+class Bubble {
+
+  float locX, locY, speedX, speedY, dirX, dirY, dia;
+
+  // CONSTRUCTOR
+  Bubble() { //acts like a function
+
+    locX = random(width);
+    locY = random(height);
+
+    speedY = random(.5, 3);
+
+    dirX = 0;
+    dirY = -1;
+
+    dia = random(20, 50);
+  }
+
+
+
+  // "draw" function
+  void update() {
+
+    locX += speedX * dirX;
+    locY += speedY * dirY;
+
+
+    if (locY < 0 - dia/2) {
+      locY = height+dia/2;
+    }
+  }
+
+
+
+  void display () {
+
+    strokeWeight(1);
+    stroke(255, 100);
+    fill(255, 75);
+    ellipse(locX, locY, dia, dia);
+  }
 }
