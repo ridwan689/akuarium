@@ -35,7 +35,8 @@ void draw() {
   else {
     background(97,145,160);
   }
-  float xButton = 100;
+  akuarium();
+  float xButton = 120;
   float yButton = 50;
   float wButton = 150;
   float hButton = 80;
@@ -46,7 +47,6 @@ void draw() {
      clean();
    }
   } 
-  akuarium();
   // ikan 1
   if(x == 900) {
     w=100;
