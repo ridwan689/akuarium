@@ -19,18 +19,15 @@ int arah=0;
 float w=100;
 float h=100;
 int speed=4;
-float zoi=0.25;
+float zoi=0.4;
 float perjalanan=0;
 int lastY=y;
-int r = 173;
-int g = 216;
-int b = 230;
 
 
 void draw() {
   int time = millis();
   if(time-lastCleaning <=5000) {
-  background(r,g,b);
+  background(173,216,230);
   }
   else {
     background(97,145,160);
@@ -40,7 +37,7 @@ void draw() {
   float yButton = 50;
   float wButton = 150;
   float hButton = 80;
-  fill(119,198,110);
+  fill(80,200,120);
   rect(xButton,yButton,wButton,hButton);
   if(mousePressed){
    if(mouseX>xButton && mouseX <xButton+wButton && mouseY>yButton && mouseY <yButton+hButton){
@@ -91,7 +88,22 @@ void draw() {
     else
     y-=speed;
   }
-  
+  fill(#641E06);
+strokeWeight(0);
+beginShape();
+vertex(0,768);
+bezierVertex(75,500,150,600,200,768);
+endShape();
+beginShape();
+vertex(150,768);
+bezierVertex(225,600,300,700,350,768);
+endShape();
+beginShape();
+vertex(300,768);
+bezierVertex(375,550,450,650,500,768);
+
+endShape(); 
+
   ikan(x,y,w,h);
 }
 
@@ -113,7 +125,7 @@ void clean() {
 
 void akuarium() {
   fill(255, 255, 255, 30);
-stroke(255, 100);
+stroke(255, 1000);
 
 //membuat kotak
 
