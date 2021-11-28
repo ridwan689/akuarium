@@ -35,6 +35,17 @@ void draw() {
   else {
     background(97,145,160);
   }
+  float xButton = 100;
+  float yButton = 50;
+  float wButton = 150;
+  float hButton = 80;
+  fill(119,198,110);
+  rect(xButton,yButton,wButton,hButton);
+  if(mousePressed){
+   if(mouseX>xButton && mouseX <xButton+wButton && mouseY>yButton && mouseY <yButton+hButton){
+     clean();
+   }
+  } 
   akuarium();
   // ikan 1
   if(x == 900) {
@@ -83,7 +94,6 @@ void draw() {
   
   ikan(x,y,w,h);
 }
-
 
 
 void ikan(int x, int y, float w, float h) {
