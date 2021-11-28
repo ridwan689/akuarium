@@ -44,6 +44,10 @@ void draw() {
      clean();
    }
   } 
+  fill(255);
+  textSize(45);
+  text("Clean",xButton+20,100);
+  
   // ikan 1
   if(x == 900) {
     w=100;
@@ -89,22 +93,10 @@ void draw() {
     y-=speed;
   }
   fill(#641E06);
-strokeWeight(0);
-beginShape();
-vertex(0,768);
-bezierVertex(75,500,150,600,200,768);
-endShape();
-beginShape();
-vertex(150,768);
-bezierVertex(225,600,300,700,350,768);
-endShape();
-beginShape();
-vertex(300,768);
-bezierVertex(375,550,450,650,500,768);
-
-endShape(); 
-
+  rumput1();
+  rumput2();
   ikan(x,y,w,h);
+  istana();
 }
 
 
@@ -180,4 +172,82 @@ endShape();
 noFill();
 noStroke();
 
+}
+
+int xAcc=1200;
+int yAcc=750;
+
+void istana() {
+//istana pasir
+  fill(255,220,160);
+  rect(xAcc-776,yAcc-420,40,60,20);
+  fill(242,191,106);
+  rect(xAcc-795,yAcc-400,32,40,20);
+  rect(xAcc-750,yAcc-400,32,40,20);
+  fill(255,220,160);
+  rect(xAcc-808,yAcc-370,105,95,20);
+  fill(242,191,106);
+  rect(xAcc-840,yAcc-325,32,40,20);
+  rect(xAcc-770,yAcc-325,32,40,20);
+  rect(xAcc-705,yAcc-325,32,40,20);
+  fill(255,220,160);
+  rect(xAcc-855,yAcc-300,200,150,20);
+  fill(242, 191, 106);
+  rect(xAcc-880,yAcc-215,32,40,20);
+  rect(xAcc-810,yAcc-215,32,40,20);
+  rect(xAcc-735,yAcc-215,32,40,20);
+  rect(xAcc-655,yAcc-215,32,40,20);
+  fill(255,220,160);
+  rect(xAcc-900, yAcc-190, 300, 200, 20);
+  fill(219, 168, 81);
+  rect(xAcc-800,yAcc-100,100,150,70);
+  rect(xAcc-880,yAcc-140, 55, 55, 20);
+  rect(xAcc-675,yAcc-140,55,55,20);
+  
+  
+  //rocks
+  fill(194, 196, 195);
+  ellipse(xAcc-1000,yAcc-35,100,80);
+  ellipse(xAcc-1100,yAcc-25,120,75);
+  fill(127, 130, 128);
+  ellipse(xAcc-1050,yAcc-15,60,50);
+  ellipse(xAcc-965,yAcc-15,40,30);
+
+    
+  //rocks2
+  fill(194,196,195);
+  ellipse(xAcc-355,yAcc-35,150,95);
+  ellipse(xAcc-280,yAcc-25,120,75);
+  fill(127,130,128);
+  ellipse(xAcc-320,yAcc-15,60,50);
+  ellipse(xAcc-425,yAcc-15,60,70);
+
+
+}
+
+void rumput1() {
+    //seaweed1
+  noStroke();
+  fill(164, 204, 159);
+  rect(xAcc-1200,yAcc-100,20,150,30);
+  rect(xAcc-1240,yAcc-100,60,20,30);
+  rect(xAcc-1235,yAcc-50,40,20,25);
+  rect(xAcc-1200,yAcc-140,20,50,20);
+  rect(xAcc-1190,yAcc-140,70,20,20);
+  rect(xAcc-1140,yAcc-190,20,70,20);
+  rect(xAcc-1240,yAcc-160,20,70,20);
+  rect(xAcc-1200,yAcc-200,20,85,30);
+  
+}
+
+void rumput2() {
+    //rumput laot
+  fill(126, 191, 130);
+  rect(xAcc-500,yAcc-100,20,150,30);
+  rect(xAcc-550,yAcc-100,70,20,30);
+  rect(xAcc-550,yAcc-150,20,70,30);
+  rect(xAcc-495,yAcc-140,65,20,30);
+  rect(xAcc-500,yAcc-140,20,150,20);
+  rect(xAcc-450,yAcc-195,20,70,20);
+  rect(xAcc-500,yAcc-200,20,90,30);
 }
