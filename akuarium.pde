@@ -2,6 +2,7 @@ PImage ikan1;
 PImage ikan2;
 int garisx=0;
 int garisy=0;
+int lastCleaning;
 
 void setup() {
   size(1000, 750);
@@ -21,10 +22,19 @@ int speed=4;
 float zoi=0.25;
 float perjalanan=0;
 int lastY=y;
+int r = 173;
+int g = 216;
+int b = 230;
 
 
 void draw() {
-  background(173,216,230);
+  int time = millis();
+  if(time-lastCleaning <=5000) {
+  background(r,g,b);
+  }
+  else {
+    background(97,145,160);
+  }
   akuarium();
   // ikan 1
   if(x == 900) {
@@ -87,6 +97,10 @@ void ikan(int x, int y, float w, float h) {
     image(ikan1,x,y,w,h);
   }    
 }
+void clean() {
+  lastCleaning=millis();
+}
+
 void akuarium() {
   fill(255, 255, 255, 30);
 stroke(255, 100);
